@@ -1,3 +1,56 @@
+# Assignment : 04 - URL Shortener API
+### Name : Mahamud Hasan
+### Email: [rabbithasan@outlook.com](rabbithasan@outlook.com)
+
+## This project focuses on building a secure RESTful URL Shortener API using Laravel Sanctum
+
+## Token-based API authentication
+- RESTful API architecture
+- CRUD operations
+- Authorization & ownership control
+- Secure URL generation logic
+- Return JSON responses only
+- Follow proper HTTP status codes
+- Generate and manage API tokens correctly
+
+## Test Users
+- dtrump@trump.com - somuchwinning
+- mahamud@example.com - p@ssword
+
+## Public Redirection Endpoint
+- GET - /{short_code} - Redirect to original URL
+- If short code exists → Redirect (302 Found)
+- Increment clicks counter
+- If expired → Return 410 Gone
+- If not found → Return 404 Not Found
+
+## Authentication Module (Laravel Sanctum)
+- GET - api/register - registers a user with name/email/pass/pass_confirm
+- POST - api/login - logs in a user with email/pass and hands out a tocken
+- POSt - api/logout - logs out a user and revokes tocken
+
+## User & Profile Management
+### All routes protected using auth:sanctum. The following endpoints allow authenticated users to manage their own account
+### Feature Method Endpoint Description
+- GET - /api/user - Return authenticated user details
+- PUT/PATCH - /api/user - Update an authenticated user name or email
+- DELETE - /api/user - Delete an authenticated user and all associated shortened URLs
+
+## URL Shortener Management (Core Feature)
+### Each shortened URL belong to a specific user. Users can only access their own URLs.
+### Feature Method Endpoint Description
+- GET - /api/urls - Paginated list of authenticated user’s own shortened URLs
+- POST - /api/urls - Shorten a given URL for an authenticated user
+- GET - /api/urls/{id} - Shows a single URL for an authenticated user
+- PUT/PATCH - /api/urls/{id} - Updates a single URL for an authenticated user
+- DELETE - /api/urls/{id} - Delets a single URL for an authenticated user
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
